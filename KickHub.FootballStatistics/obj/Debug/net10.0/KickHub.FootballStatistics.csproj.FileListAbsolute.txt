@@ -13,3 +13,4 @@
 /Users/joe_gisa/KickHub/KickHub.FootballStatistics/obj/Debug/net10.0/refint/KickHub.FootballStatistics.dll
 /Users/joe_gisa/KickHub/KickHub.FootballStatistics/obj/Debug/net10.0/KickHub.FootballStatistics.pdb
 /Users/joe_gisa/KickHub/KickHub.FootballStatistics/obj/Debug/net10.0/ref/KickHub.FootballStatistics.dll
+/Users/joe_gisa/KickHub/KickHub.FootballStatistics/obj/Debug/net10.0/KickHub.FootballStatistics.sourcelink.json

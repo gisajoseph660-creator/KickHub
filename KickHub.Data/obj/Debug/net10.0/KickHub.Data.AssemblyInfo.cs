@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KickHub.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8eaecd72cc9039c65306decfd9f483c5062f6ba2")]
 [assembly: System.Reflection.AssemblyProductAttribute("KickHub.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KickHub.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

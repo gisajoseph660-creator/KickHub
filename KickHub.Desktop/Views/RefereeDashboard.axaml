@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KickHub.Desktop.Views.RefereeDashboard"
+        Width="900"
+        Height="600"
+        Title="KickHub - Referee Dashboard">
+
+    <StackPanel Margin="30" Spacing="20">
+
+        <TextBlock Text="REFEREE DASHBOARD"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+
+        <TextBlock Text="Match Management"
+                   FontSize="20"/>
+
+        <Button Content="View Assigned Matches"
+                Height="50"/>
+
+        <Button Content="Start Match"
+                Height="50"/>
+
+        <Button Content="Record Goal"
+                Height="50"/>
+
+        <Button Content="Record Yellow Card"
+                Height="50"/>
+
+        <Button Content="Record Red Card"
+                Height="50"/>
+
+        <Button Content="Record Match Result"
+                Height="50"/>
+
+    </StackPanel>
+
+</Window>

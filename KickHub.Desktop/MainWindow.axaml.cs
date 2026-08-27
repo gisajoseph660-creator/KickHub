@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using KickHub.Core.Services;
+using KickHub.Desktop.Views;
 
 namespace KickHub.Desktop;
 
@@ -40,7 +41,28 @@ public partial class MainWindow : Window
             return;
         }
 
-        MessageText.Text =
-            $"Welcome {user.Username}! Role: {user.Role}";
+        Window dashboard;
+
+        switch (user.Role)
+        {
+            case "Player":
+                dashboard = new PlayerDashboard();
+                break;
+
+            case "Referee":
+                dashboard = new RefereeDashboard();
+                break;
+
+            case "Administrator":
+                dashboard = new AdminDashboard();
+                break;
+
+            default:
+                MessageText.Text = "Unknown user role.";
+                return;
+        }
+
+        dashboard.Show();
+        Close();
     }
 }
