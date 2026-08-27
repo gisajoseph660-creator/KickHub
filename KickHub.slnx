@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="KickHub.Core/KickHub.Core.csproj" />
+  <Project Path="KickHub.Data/KickHub.Data.csproj" />
+  <Project Path="KickHub.Desktop/KickHub.Desktop.csproj" />
+  <Project Path="KickHub.FootballStatistics/KickHub.FootballStatistics.csproj" />
+  <Project Path="KickHub.Tests/KickHub.Tests.csproj" />
+</Solution>

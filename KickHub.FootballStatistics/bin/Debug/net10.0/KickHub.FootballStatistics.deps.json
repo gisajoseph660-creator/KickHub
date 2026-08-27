@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "KickHub.FootballStatistics/1.0.0": {
+        "dependencies": {
+          "KickHub.Core": "1.0.0"
+        },
+        "runtime": {
+          "KickHub.FootballStatistics.dll": {}
+        }
+      },
+      "KickHub.Core/1.0.0": {
+        "runtime": {
+          "KickHub.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KickHub.FootballStatistics/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KickHub.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
