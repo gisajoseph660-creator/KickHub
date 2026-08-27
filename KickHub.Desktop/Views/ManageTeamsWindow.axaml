@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KickHub.Desktop.Views.ManageTeamsWindow"
+        Width="800"
+        Height="650"
+        Title="KickHub - Manage Teams">
+
+    <StackPanel Margin="30" Spacing="15">
+
+        <TextBlock Text="MANAGE TEAMS"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+
+        <TextBlock Text="Create New Team"
+                   FontSize="22"
+                   FontWeight="Bold"/>
+
+        <TextBlock Text="Team Name"/>
+        <TextBox x:Name="TeamNameBox"
+                 PlaceholderText="Enter team name"/>
+
+        <TextBlock Text="Description"/>
+        <TextBox x:Name="DescriptionBox"
+                 PlaceholderText="Enter team description"/>
+
+        <Button Content="Create Team"
+                Click="CreateTeam_Click"
+                Height="50"/>
+
+        <TextBlock x:Name="MessageText"
+                   FontSize="16"/>
+
+        <TextBlock Text="Existing Teams"
+                   FontSize="22"
+                   FontWeight="Bold"/>
+
+        <ListBox x:Name="TeamList"
+                 Height="220"/>
+
+        <Button Content="Back to Admin Dashboard"
+                Click="Back_Click"
+                Height="45"/>
+
+    </StackPanel>
+
+</Window>

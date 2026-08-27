@@ -15,15 +15,21 @@ public partial class AdminDashboard : Window
         ActionText.Text = "User management selected.";
     }
 
-    private void ManageTeams_Click(object? sender, RoutedEventArgs e)
-    {
-        ActionText.Text = "Team management selected.";
-    }
+   private void ManageTeams_Click(
+    object? sender,
+    RoutedEventArgs e)
+{
+    new ManageTeamsWindow().Show();
+    Close();
+}
 
-    private void ManagePlayers_Click(object? sender, RoutedEventArgs e)
-    {
-        ActionText.Text = "Player management selected.";
-    }
+    private void ManagePlayers_Click(
+    object? sender,
+    RoutedEventArgs e)
+{
+    new ManagePlayersWindow().Show();
+    Close();
+}
 
     private void ManageMatches_Click(
     object? sender,

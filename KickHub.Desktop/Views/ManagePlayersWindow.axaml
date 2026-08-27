@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KickHub.Desktop.Views.ManagePlayersWindow"
+        Width="800"
+        Height="700"
+        Title="KickHub - Manage Players">
+
+    <StackPanel Margin="30" Spacing="15">
+
+        <TextBlock Text="MANAGE PLAYERS"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+
+        <TextBlock Text="Add Player"
+                   FontSize="22"
+                   FontWeight="Bold"/>
+
+        <TextBlock Text="Player Name"/>
+        <TextBox x:Name="PlayerNameBox"
+                 PlaceholderText="Enter player name"/>
+
+        <TextBlock Text="Shirt Number"/>
+        <TextBox x:Name="ShirtNumberBox"
+                 PlaceholderText="Example: 10"/>
+
+        <TextBlock Text="Team"/>
+        <ComboBox x:Name="TeamBox"/>
+
+        <Button Content="Add Player"
+                Click="AddPlayer_Click"
+                Height="50"/>
+
+        <TextBlock x:Name="MessageText"
+                   FontSize="16"/>
+
+        <TextBlock Text="Players"
+                   FontSize="22"
+                   FontWeight="Bold"/>
+
+        <ListBox x:Name="PlayerList"
+                 Height="220"/>
+
+        <Button Content="Back to Admin Dashboard"
+                Click="Back_Click"
+                Height="45"/>
+
+    </StackPanel>
+
+</Window>
