@@ -29,9 +29,42 @@ public class TeamRepository
         command.Parameters.AddWithValue("$managerId", team.ManagerId);
 
         command.ExecuteNonQuery();
-        var idCommand = connection.CreateCommand();
-idCommand.CommandText = "SELECT last_insert_rowid();";
 
-team.Id = Convert.ToInt32(idCommand.ExecuteScalar());
+        var idCommand = connection.CreateCommand();
+        idCommand.CommandText = "SELECT last_insert_rowid();";
+
+        team.Id = Convert.ToInt32(idCommand.ExecuteScalar());
+    }
+
+    public List<Team> GetAll()
+    {
+        var teams = new List<Team>();
+
+        using var connection = _database.CreateConnection();
+        connection.Open();
+
+        var command = connection.CreateCommand();
+
+        command.CommandText = """
+            SELECT Id, Name, Description, ManagerId
+            FROM Teams;
+            """;
+
+        using var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            teams.Add(new Team
+            {
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Description = reader.IsDBNull(2)
+                    ? string.Empty
+                    : reader.GetString(2),
+                ManagerId = reader.GetInt32(3)
+            });
+        }
+
+        return teams;
     }
 }

@@ -25,8 +25,14 @@ public partial class AdminDashboard : Window
         ActionText.Text = "Player management selected.";
     }
 
-    private void ManageMatches_Click(object? sender, RoutedEventArgs e)
-    {
-        ActionText.Text = "Match management selected.";
-    }
+    private void ManageMatches_Click(
+    object? sender,
+    RoutedEventArgs e)
+{
+    var window = new ManageMatchesWindow();
+
+    window.Show();
+
+    Close();
+}
 }
