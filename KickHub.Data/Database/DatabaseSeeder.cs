@@ -46,12 +46,12 @@ public class DatabaseSeeder
 
         var player = new Player
         {
-            Name = "John Doe",
+            Name = "Elvis Shema",
             TeamId = homeTeam.Id,
-            ShirtNumber = 9,
-            Goals = 8,
-            YellowCards = 2,
-            RedCards = 0
+            ShirtNumber = 19,
+            Goals = 2,
+            YellowCards = 1,
+            RedCards = 1
         };
 
         _playerRepository.Add(player);
