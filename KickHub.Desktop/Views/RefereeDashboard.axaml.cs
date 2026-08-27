@@ -1,16 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using KickHub.Core.Models;
 using KickHub.Data.Database;
 using KickHub.Data.Repositories;
-using System.Linq;
+
 
 namespace KickHub.Desktop.Views;
 
 public partial class RefereeDashboard : Window
 {
     private readonly MatchRepository _matchRepository;
-    private Match? _currentMatch;
+    private List<Match> _assignedMatches = new();
 
     public RefereeDashboard()
     {
@@ -19,126 +21,49 @@ public partial class RefereeDashboard : Window
         var database = new DatabaseConnection();
         _matchRepository = new MatchRepository(database);
 
-        LoadMatch();
+        LoadAssignedMatches();
     }
 
-    private void LoadMatch()
+    private void LoadAssignedMatches()
     {
-        var matches = _matchRepository.GetAll();
+        _assignedMatches = _matchRepository
+            .GetAll()
+            .Where(match => match.RefereeId == 2)
+            .ToList();
 
-        _currentMatch = matches.FirstOrDefault(
-            match => match.RefereeId == 2);
+        MatchList.Items.Clear();
 
-        if (_currentMatch == null)
+        foreach (var match in _assignedMatches)
         {
-            ScoreText.Text = "No match";
-            StatusText.Text = "No assigned match";
-            EventText.Text = "There are no matches assigned to this referee.";
+            MatchList.Items.Add(
+                $"Match #{match.Id} | " +
+                $"{match.Date:dd MMM yyyy HH:mm} | " +
+                $"Score: {match.HomeScore}-{match.AwayScore} | " +
+                $"Status: {match.Status}");
+        }
+
+        if (_assignedMatches.Count == 0)
+        {
+            MessageText.Text = "No matches are currently assigned to you.";
+        }
+    }
+
+    private void ManageMatch_Click(object? sender, RoutedEventArgs e)
+    {
+        int selectedIndex = MatchList.SelectedIndex;
+
+        if (selectedIndex < 0)
+        {
+            MessageText.Text = "Please select a match first.";
             return;
         }
 
-        UpdateDisplay();
-    }
+        var selectedMatch = _assignedMatches[selectedIndex];
 
-    private void HomeGoal_Click(object? sender, RoutedEventArgs e)
-    {
-        if (_currentMatch == null)
-            return;
+        var matchWindow = new MatchManagementWindow(selectedMatch.Id);
 
-        if (_currentMatch.Status == "Completed")
-        {
-            EventText.Text = "This match has already been completed.";
-            return;
-        }
+        matchWindow.Show();
 
-        _currentMatch.HomeScore++;
-        _currentMatch.Status = "In Progress";
-
-        _matchRepository.Update(_currentMatch);
-
-        UpdateDisplay();
-
-        EventText.Text = "Home goal recorded.";
-    }
-
-    private void AwayGoal_Click(object? sender, RoutedEventArgs e)
-    {
-        if (_currentMatch == null)
-            return;
-
-        if (_currentMatch.Status == "Completed")
-        {
-            EventText.Text = "This match has already been completed.";
-            return;
-        }
-
-        _currentMatch.AwayScore++;
-        _currentMatch.Status = "In Progress";
-
-        _matchRepository.Update(_currentMatch);
-
-        UpdateDisplay();
-
-        EventText.Text = "Away goal recorded.";
-    }
-
-    private void YellowCard_Click(object? sender, RoutedEventArgs e)
-    {
-        if (_currentMatch == null)
-            return;
-
-        if (_currentMatch.Status == "Completed")
-        {
-            EventText.Text = "Cannot record a card after the match is completed.";
-            return;
-        }
-
-        EventText.Text = "Yellow card recorded.";
-    }
-
-    private void RedCard_Click(object? sender, RoutedEventArgs e)
-    {
-        if (_currentMatch == null)
-            return;
-
-        if (_currentMatch.Status == "Completed")
-        {
-            EventText.Text = "Cannot record a card after the match is completed.";
-            return;
-        }
-
-        EventText.Text = "Red card recorded.";
-    }
-
-    private void FinishMatch_Click(object? sender, RoutedEventArgs e)
-    {
-        if (_currentMatch == null)
-            return;
-
-        if (_currentMatch.Status == "Completed")
-        {
-            EventText.Text = "This match has already been completed.";
-            return;
-        }
-
-        _currentMatch.Status = "Completed";
-
-        _matchRepository.Update(_currentMatch);
-
-        UpdateDisplay();
-
-        EventText.Text =
-            $"Match finished: {_currentMatch.HomeScore} - {_currentMatch.AwayScore}";
-    }
-
-    private void UpdateDisplay()
-    {
-        if (_currentMatch == null)
-            return;
-
-        ScoreText.Text =
-            $"{_currentMatch.HomeScore} - {_currentMatch.AwayScore}";
-
-        StatusText.Text = _currentMatch.Status;
+        Close();
     }
 }

@@ -11,68 +11,22 @@
                    FontSize="30"
                    FontWeight="Bold"/>
 
-        <TextBlock Text="Match Management"
-                   FontSize="20"/>
+        <TextBlock Text="My Assigned Matches"
+                   FontSize="22"
+                   FontWeight="Bold"/>
 
-        <Border Padding="15">
-            <StackPanel Spacing="10">
+        <TextBlock Text="Select an assigned match to manage it."
+                   FontSize="16"/>
 
-                <TextBlock Text="Manchester United vs Arsenal"
-                           FontSize="22"
-                           FontWeight="Bold"/>
+        <ListBox x:Name="MatchList"
+                 Height="300"/>
 
-                <TextBlock x:Name="ScoreText"
-                           Text="0 - 0"
-                           FontSize="35"
-                           HorizontalAlignment="Center"/>
+        <Button Content="Manage Selected Match"
+                Click="ManageMatch_Click"
+                Height="50"/>
 
-                <TextBlock x:Name="StatusText"
-                           Text="Scheduled"
-                           HorizontalAlignment="Center"/>
-
-            </StackPanel>
-        </Border>
-
-        <Grid ColumnDefinitions="*,*"
-              RowDefinitions="Auto,Auto,Auto"
-              ColumnSpacing="10"
-              RowSpacing="10">
-
-            <Button Grid.Row="0"
-                    Grid.Column="0"
-                    Content="Home Goal"
-                    Click="HomeGoal_Click"
-                    Height="45"/>
-
-            <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Content="Away Goal"
-                    Click="AwayGoal_Click"
-                    Height="45"/>
-
-            <Button Grid.Row="1"
-                    Grid.Column="0"
-                    Content="Yellow Card"
-                    Click="YellowCard_Click"
-                    Height="45"/>
-
-            <Button Grid.Row="1"
-                    Grid.Column="1"
-                    Content="Red Card"
-                    Click="RedCard_Click"
-                    Height="45"/>
-
-            <Button Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Content="Finish Match"
-                    Click="FinishMatch_Click"
-                    Height="50"/>
-
-        </Grid>
-
-        <TextBlock x:Name="EventText"
-                   Text="No events recorded."
+        <TextBlock x:Name="MessageText"
+                   Text=""
                    FontSize="16"
                    TextWrapping="Wrap"/>
 
