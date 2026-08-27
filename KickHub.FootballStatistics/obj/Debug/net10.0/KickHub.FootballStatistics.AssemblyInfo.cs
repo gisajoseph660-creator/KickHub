@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KickHub.FootballStatistics")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8eaecd72cc9039c65306decfd9f483c5062f6ba2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35277575d8d1e27230a8452238af9ac15363b794")]
 [assembly: System.Reflection.AssemblyProductAttribute("KickHub.FootballStatistics")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KickHub.FootballStatistics")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
