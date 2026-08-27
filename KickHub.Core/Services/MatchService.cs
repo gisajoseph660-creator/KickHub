@@ -1,15 +1,32 @@
+using KickHub.Core.Interfaces;
 using KickHub.Core.Models;
 
 namespace KickHub.Core.Services;
 
-public class MatchService
+public class MatchService : IMatchService
 {
-    public bool CanStartMatch(Match match)
+    private readonly List<Match> _matches = new();
+
+    public List<Match> GetAssignedMatches(int refereeId)
     {
-        return match.HomeTeamId != match.AwayTeamId;
+        return _matches
+            .Where(match => match.RefereeId == refereeId)
+            .ToList();
     }
 
-    public void RecordResult(Match match, int homeScore, int awayScore)
+    public void RecordGoal(
+        Match match,
+        int homeScore,
+        int awayScore)
+    {
+        match.HomeScore = homeScore;
+        match.AwayScore = awayScore;
+    }
+
+    public void RecordResult(
+        Match match,
+        int homeScore,
+        int awayScore)
     {
         match.HomeScore = homeScore;
         match.AwayScore = awayScore;

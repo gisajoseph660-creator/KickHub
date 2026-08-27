@@ -2,10 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="KickHub.Desktop.Views.AdminDashboard"
         Width="900"
-        Height="600"
+        Height="650"
         Title="KickHub - Administrator Dashboard">
 
-    <StackPanel Margin="30" Spacing="20">
+    <StackPanel Margin="30" Spacing="15">
 
         <TextBlock Text="ADMINISTRATOR DASHBOARD"
                    FontSize="30"
@@ -15,16 +15,30 @@
                    FontSize="20"/>
 
         <Button Content="Manage Users"
+                Click="ManageUsers_Click"
                 Height="50"/>
 
         <Button Content="Manage Teams"
+                Click="ManageTeams_Click"
                 Height="50"/>
 
         <Button Content="Manage Players"
+                Click="ManagePlayers_Click"
                 Height="50"/>
 
         <Button Content="Manage Matches"
+                Click="ManageMatches_Click"
                 Height="50"/>
+
+        <Border Padding="15"
+                Margin="0,15,0,0">
+
+            <TextBlock x:Name="ActionText"
+                       Text="Select an option above."
+                       FontSize="18"
+                       TextWrapping="Wrap"/>
+
+        </Border>
 
     </StackPanel>
 

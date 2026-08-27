@@ -2,10 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="KickHub.Desktop.Views.RefereeDashboard"
         Width="900"
-        Height="600"
+        Height="650"
         Title="KickHub - Referee Dashboard">
 
-    <StackPanel Margin="30" Spacing="20">
+    <StackPanel Margin="30" Spacing="15">
 
         <TextBlock Text="REFEREE DASHBOARD"
                    FontSize="30"
@@ -14,23 +14,67 @@
         <TextBlock Text="Match Management"
                    FontSize="20"/>
 
-        <Button Content="View Assigned Matches"
-                Height="50"/>
+        <Border Padding="15">
+            <StackPanel Spacing="10">
 
-        <Button Content="Start Match"
-                Height="50"/>
+                <TextBlock Text="Manchester United vs Arsenal"
+                           FontSize="22"
+                           FontWeight="Bold"/>
 
-        <Button Content="Record Goal"
-                Height="50"/>
+                <TextBlock x:Name="ScoreText"
+                           Text="0 - 0"
+                           FontSize="35"
+                           HorizontalAlignment="Center"/>
 
-        <Button Content="Record Yellow Card"
-                Height="50"/>
+                <TextBlock x:Name="StatusText"
+                           Text="Scheduled"
+                           HorizontalAlignment="Center"/>
 
-        <Button Content="Record Red Card"
-                Height="50"/>
+            </StackPanel>
+        </Border>
 
-        <Button Content="Record Match Result"
-                Height="50"/>
+        <Grid ColumnDefinitions="*,*"
+              RowDefinitions="Auto,Auto,Auto"
+              ColumnSpacing="10"
+              RowSpacing="10">
+
+            <Button Grid.Row="0"
+                    Grid.Column="0"
+                    Content="Home Goal"
+                    Click="HomeGoal_Click"
+                    Height="45"/>
+
+            <Button Grid.Row="0"
+                    Grid.Column="1"
+                    Content="Away Goal"
+                    Click="AwayGoal_Click"
+                    Height="45"/>
+
+            <Button Grid.Row="1"
+                    Grid.Column="0"
+                    Content="Yellow Card"
+                    Click="YellowCard_Click"
+                    Height="45"/>
+
+            <Button Grid.Row="1"
+                    Grid.Column="1"
+                    Content="Red Card"
+                    Click="RedCard_Click"
+                    Height="45"/>
+
+            <Button Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Content="Finish Match"
+                    Click="FinishMatch_Click"
+                    Height="50"/>
+
+        </Grid>
+
+        <TextBlock x:Name="EventText"
+                   Text="No events recorded."
+                   FontSize="16"
+                   TextWrapping="Wrap"/>
 
     </StackPanel>
 
