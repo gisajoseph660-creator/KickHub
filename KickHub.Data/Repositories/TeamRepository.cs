@@ -29,5 +29,9 @@ public class TeamRepository
         command.Parameters.AddWithValue("$managerId", team.ManagerId);
 
         command.ExecuteNonQuery();
+        var idCommand = connection.CreateCommand();
+idCommand.CommandText = "SELECT last_insert_rowid();";
+
+team.Id = Convert.ToInt32(idCommand.ExecuteScalar());
     }
 }
