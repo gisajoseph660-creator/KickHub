@@ -2,29 +2,60 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="KickHub.Desktop.Views.PlayerDashboard"
         Width="900"
-        Height="600"
+        Height="650"
         Title="KickHub - Player Dashboard">
 
-    <StackPanel Margin="30" Spacing="20">
+    <StackPanel Margin="30" Spacing="15">
 
         <TextBlock Text="PLAYER DASHBOARD"
                    FontSize="30"
                    FontWeight="Bold"/>
 
-        <TextBlock Text="Welcome to KickHub"
+        <TextBlock Text="Welcome, Player!"
                    FontSize="20"/>
 
-        <Button Content="View My Team"
-                Height="50"/>
+        <Border Padding="15">
+            <StackPanel Spacing="8">
+                <TextBlock Text="PLAYER PROFILE"
+                           FontSize="20"
+                           FontWeight="Bold"/>
 
-        <Button Content="View Matches"
-                Height="50"/>
+                <TextBlock Text="Name: John Doe"/>
+                <TextBlock Text="Position: Forward"/>
+                <TextBlock Text="Team: KickHub United"/>
+            </StackPanel>
+        </Border>
 
-        <Button Content="View Player Statistics"
-                Height="50"/>
+        <Border Padding="15">
+            <StackPanel Spacing="8">
+                <TextBlock Text="MY STATISTICS"
+                           FontSize="20"
+                           FontWeight="Bold"/>
+
+                <TextBlock Text="Matches Played: 12"/>
+                <TextBlock Text="Goals: 8"/>
+                <TextBlock Text="Assists: 5"/>
+                <TextBlock Text="Yellow Cards: 2"/>
+            </StackPanel>
+        </Border>
+
+        <Border Padding="15">
+            <StackPanel Spacing="8">
+                <TextBlock Text="UPCOMING MATCH"
+                           FontSize="20"
+                           FontWeight="Bold"/>
+
+                <TextBlock Text="KickHub United vs Berlin FC"/>
+                <TextBlock Text="Saturday, 15:00"/>
+            </StackPanel>
+        </Border>
 
         <Button Content="View Match Results"
-                Height="50"/>
+                Click="ViewResults_Click"
+                Height="45"/>
+
+        <TextBlock x:Name="MessageText"
+                   FontSize="16"/>
 
     </StackPanel>
 
