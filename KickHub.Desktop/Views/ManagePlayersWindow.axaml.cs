@@ -71,14 +71,11 @@ public partial class ManagePlayersWindow : Window
             return;
         }
 
-        if (!int.TryParse(
-            ShirtNumberBox.Text,
-            out int shirtNumber))
-        {
-            MessageText.Text =
-                "Please enter a valid shirt number.";
-            return;
-        }
+        if (!int.TryParse(ShirtNumberBox.Text, out var shirtNumber) || shirtNumber <= 0)
+{
+    MessageText.Text = "Please enter a valid positive shirt number.";
+    return;
+}
 
         int teamIndex = TeamBox.SelectedIndex;
 

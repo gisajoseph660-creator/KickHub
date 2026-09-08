@@ -67,14 +67,11 @@ public partial class ManageMatchesWindow : Window
             return;
         }
 
-        if (!DateTime.TryParse(
-            DateBox.Text,
-            out DateTime matchDate))
-        {
-            MessageText.Text =
-                "Please enter a valid date and time.";
-            return;
-        }
+        if (!DateTime.TryParse(DateBox.Text, out var matchDate) || matchDate <= DateTime.Now)
+{
+    MessageText.Text = "Please enter a future date and time.";
+    return;
+}
 
         var homeTeam = _teams[homeIndex];
         var awayTeam = _teams[awayIndex];
