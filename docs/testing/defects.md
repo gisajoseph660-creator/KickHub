@@ -135,7 +135,7 @@ The same test was repeated using shirt number `0`. The application rejected the 
 `Please enter a valid positive shirt number.`
 
 **Evidence:**  
-- `docs/evidence/DEF-02-zero-shirt-number-accepted.png`
+- `docs/evidence/DEF-02-zero-shirt-number.png`
 - `docs/evidence/DEF-02-zero-shirt-number-fixed.png`
 
 ---

@@ -192,7 +192,7 @@ Test evidence is stored in:
 Important defect evidence includes:
 
 - `DEF-01-match-id-fix.png`
-- `DEF-02-zero-shirt-number-accepted.png`
+- `DEF-02-zero-shirt-number.png`
 - `DEF-02-zero-shirt-number-fixed.png`
 - `DEF-03-past-date-accepted.png`
 - `DEF-03-past-date-fixed.png`
