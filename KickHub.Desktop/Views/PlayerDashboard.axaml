@@ -53,8 +53,12 @@
                     <TextBlock x:Name="RedCardsText"
                                Text="Red Cards: 0"/>
 
+<TextBlock x:Name="TotalCardsText"
+           Text="Total Cards: 0"
+           FontSize="16"/>
+
                 </StackPanel>
-            </Border>
+        </Border>
 
             <!-- MATCHES -->
             <Border Padding="15">

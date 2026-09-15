@@ -5,6 +5,7 @@ using KickHub.Core.Models;
 using KickHub.Data.Database;
 using KickHub.Data.Repositories;
 using Avalonia.Interactivity;
+using KickHub.FootballStatistics.Calculators;
 
 namespace KickHub.Desktop.Views;
 
@@ -59,6 +60,14 @@ public partial class PlayerDashboard : Window
             $"Yellow Cards: {player.YellowCards}";
         RedCardsText.Text =
             $"Red Cards: {player.RedCards}";
+
+          var playerStatisticsCalculator = new PlayerStatisticsCalculator();
+
+var totalCards =
+    playerStatisticsCalculator.CalculateTotalCards(player);  
+
+TotalCardsText.Text =
+    $"Total Cards: {totalCards}";
 
         LoadMatches(player.TeamId, teams);
     }
