@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using KickHub.Core.Models;
 using KickHub.Data.Database;
 using KickHub.Data.Repositories;
+using Avalonia.Interactivity;
 
 namespace KickHub.Desktop.Views;
 
@@ -108,4 +109,11 @@ public partial class PlayerDashboard : Window
 
         return team?.Name ?? "Unknown Team";
     }
+
+private void Logout_Click(object? sender, RoutedEventArgs e)
+{
+    var loginWindow = new MainWindow();
+    loginWindow.Show();
+    Close();
+}
 }

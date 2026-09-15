@@ -31,7 +31,7 @@ public partial class AdminDashboard : Window
     Close();
 }
 
-    private void ManageMatches_Click(
+   private void ManageMatches_Click(
     object? sender,
     RoutedEventArgs e)
 {
@@ -39,6 +39,13 @@ public partial class AdminDashboard : Window
 
     window.Show();
 
+    Close();
+}
+
+private void Logout_Click(object? sender, RoutedEventArgs e)
+{
+    var loginWindow = new MainWindow();
+    loginWindow.Show();
     Close();
 }
 }

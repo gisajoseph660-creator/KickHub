@@ -40,6 +40,11 @@
 
         </Border>
 
+<Button Content="Logout"
+        Click="Logout_Click"
+        Height="45"
+        Margin="0,15,0,0"/>
+        
     </StackPanel>
 
 </Window>

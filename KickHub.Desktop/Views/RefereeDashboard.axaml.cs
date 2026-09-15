@@ -66,4 +66,11 @@ public partial class RefereeDashboard : Window
 
         Close();
     }
+
+    private void Logout_Click(object? sender, RoutedEventArgs e)
+    {
+        var loginWindow = new MainWindow();
+        loginWindow.Show();
+        Close();
+    }
 }
